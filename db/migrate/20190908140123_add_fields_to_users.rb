@@ -13,6 +13,5 @@ class AddFieldsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :funniness, :integer
     add_column :users, :username, :string
     add_column :users, :age, :integer
-    add_column :users, :email, :string
   end
 end
