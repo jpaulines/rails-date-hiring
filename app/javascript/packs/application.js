@@ -1,6 +1,5 @@
 import "bootstrap";
 
-
 // Algolia places
 
 var places = require('places.js');
