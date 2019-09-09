@@ -15,6 +15,20 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name, required: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :username, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :profile_image, required: true %>
+    <%= f.input :height, required: false %>
+    <%= f.input :age, required: false %>
+    <%= f.input :strength, required: false %>
+    <%= f.input :langagues, required: false %>
+    <%= f.input :hidden_talent, required: false %>
+    <%= f.input :talkativeness, required: false %>
+    <%= f.input :funniness, required: false %>
+    <%= f.input :description, required: false %>
+
   </div>
 
   <div class="form-actions">
