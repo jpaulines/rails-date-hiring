@@ -6,7 +6,7 @@
           <%= f.input :name %>
           <%= f.input :location %>
           <%= f.input :date %>
-          <%= f.input :amenities %>
+          <%= f.input :amenities, as: :select, collection: ["Flight included", "Hotel included", "Meals included"] %>
           <%= f.input :event_description %>
           <%= f.input :wishlist, :label => "What you are looking for" %>
           <%= f.input :event_image %>
