@@ -1,41 +1,68 @@
-<!-- show the event_image -->
-<!-- show the tags for event_category (model not created yet) on the image -->
 
-<!-- show event details below-->
- <!--
-   t.string "name"
-   t.string "location"
-   t.date "date"
-   t.string "amenities"
-   t.string "event_description"
-   t.string "wishlist"
-   t.string "cost"
- -->
+<div class="container">
+  <div class="row">
+    <!-- show the event_image -->
+    <!-- show the tags for event_category (model not created yet) on the image -->
+    <!-- show event details below-->
+      <!--
+       t.string "name"
+       t.string "location"
+       t.date "date"
+       t.string "amenities"
+       t.string "event_description"
+       t.string "wishlist"
+       t.string "cost"
+      -->
+    <div class="col-12 col-lg-6">
+      <img src="TBD" class="" alt="No picture">
+      <h2><%= @event.name %></h2>
+      <span><%= @event.location %></span>
+      <span><%= @event.date %></span>
+      <span><%= @event.amenities %></span>
+      <span><%= @event.event_description %></span>
+      <span><%= @event.wishlist %></span>
+      <span><%= @event.cost %></span>
+    </div>
+    <!-- show booking new-->
+    <!-- form motivation field -->
+    <!-- form button submit -->
+      <!--
+         t.bigint "user_id"
+         t.bigint "event_id"
+         t.boolean "approved"
+         t.string "motivation"
+      -->
+    <div class="col-12 col-lg-2">
 
-<!-- show booking new-->
-  <!-- form motivation field -->
-  <!-- form button submit -->
-  <!--
-     t.bigint "user_id"
-     t.bigint "event_id"
-     t.boolean "approved"
-     t.string "motivation"
-  -->
+    </div>
+    <!-- show on right side t.bigint "user_id" -->
+    <!-- show avatar profile_image -->
+      <!--
+         t.string "first_name"
+         t.string "last_name"
+         t.string "city"
+         t.string "description"
+         t.string "height"
+         t.string "strength"
+         t.string "language"
+         t.string "hidden_talent"
+         t.integer "talkativeness"
+         t.integer "funniness"
+         t.string "username"
+         t.integer "age"
+         t.string "gender"
+       -->
+    <div class="col-12 col-lg-4">
 
-<!-- show on right side t.bigint "user_id" -->
-  <!-- show avatar profile_image -->
-  <!--
-     t.string "first_name"
-     t.string "last_name"
-     t.string "city"
-     t.string "description"
-     t.string "height"
-     t.string "strength"
-     t.string "language"
-     t.string "hidden_talent"
-     t.integer "talkativeness"
-     t.integer "funniness"
-     t.string "username"
-     t.integer "age"
-     t.string "gender"
-   -->
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
