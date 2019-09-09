@@ -1,0 +1,14 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :date %>
+  <%= f.input :amenities %>
+  <%= f.input :event_description %>
+  <%= f.input :wishlist %>
+  <%= f.input :event_image %>
+  <%= f.input :cost %>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'My event', events_path(@events) %>
