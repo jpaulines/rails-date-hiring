@@ -1,0 +1,15 @@
+.banner h1 {
+    font-size: 38px;
+}
+
+.banner {
+    background-image: image-url("Banner.png");
+    background-size: cover;
+    color: white;
+    padding: 120px 0;
+    margin: 0;
+}
+
+.banner-text {
+  padding: 16px;
+}
