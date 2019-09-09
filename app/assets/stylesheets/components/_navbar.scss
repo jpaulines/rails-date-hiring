@@ -5,7 +5,6 @@
   color: $green;
   font-family: 'Open Sans';
   font-weight: 600;
-  margin-bottom: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +14,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: $green;
+}
+
+a.dropdown-item {
+  color: $gray;
+  &:hover {
+  color: $green;
+  }
 }
