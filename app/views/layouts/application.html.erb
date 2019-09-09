@@ -18,7 +18,7 @@
     <p class="alert"><%= alert %></p> -->
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="<%= 'container' unless params[:controller] == 'pages' && params[:action] == 'home' %>">
+    <div class="<%= 'container' unless (params[:controller] == 'pages' && params[:action] == 'home') || (params[:controller] == 'events' && params[:action] == 'index') %>">
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
