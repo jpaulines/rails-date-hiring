@@ -9,66 +9,66 @@
         <h1>What are you looking for?</h1>
 
         <%= form_tag events_path, method: :get do %>
-          <div class="form-group">
+        <div class="form-group">
           <%= text_field_tag :city,
-            params[:city],
-            class: "form-control",
+          params[:city],
+          class: "form-control",
             id: "location-input",
             placeholder: "Where?"
-          %>
+            %>
           </div>
           <div class="form-group">
-          <%= date_field_tag :start_date,
+            <%= date_field_tag :start_date,
             params[:start_date],
             class: "form-control",
-            placeholder: "Starting when?"
-          %>
-          </div>
-          <div class="form-group">
-          <%= date_field_tag :end_date,
-            params[:end_date],
-            class: "form-control",
-            placeholder: "Ending when?"
-          %>
-          </div>
-          <div class="form-group">
-          <%= select_tag :event_category,
-            raw(
-              "<option>Dinner Party</option>
-              <option>Family Event</option>
-              <option>Birthday Party</option>
-              <option>Entertainment/Show</option>
-              <option>School Reunion</option>
-              <option>Charity Fundraiser</option>
-              <option>Barbeque</option>
-              <option>Night Club Party</option>
-              <option>Family Vacation</option>
-              <option>Event Premiere</option>
-              <option>House Party</option>
-              <option>Chef'S Tasting</option>
-              <option>Sports Game</option>
-              <option>Bar Mitsvah</option>"
-            ),
+              placeholder: "Starting when?"
+              %>
+            </div>
+            <div class="form-group">
+              <%= date_field_tag :end_date,
+              params[:end_date],
+              class: "form-control",
+                placeholder: "Ending when?"
+                %>
+              </div>
+              <div class="form-group">
+                <%= select_tag :event_category,
+                raw(
+                  "<option>Dinner Party</option>
+                  <option>Family Event</option>
+                  <option>Birthday Party</option>
+                  <option>Entertainment/Show</option>
+                  <option>School Reunion</option>
+                  <option>Charity Fundraiser</option>
+                  <option>Barbeque</option>
+                  <option>Night Club Party</option>
+                  <option>Family Vacation</option>
+                  <option>Event Premiere</option>
+                  <option>House Party</option>
+                  <option>Chef'S Tasting</option>
+                  <option>Sports Game</option>
+                  <option>Bar Mitsvah</option>"
+                  ),
             # params[:event_category],
             class: "form-control"
             # placeholder: "What?"
-          %>
+            %>
           </div>
 
           <%= submit_tag "Submit", class: "btn custom" %>
-        <% end %>
+          <% end %>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container mt-3">
-    <h3>Trending events close to you..</h3>
-    <div class="row">
+    <div class="container mt-3">
+      <h3>Trending events close to you..</h3>
+      <div class="row">
         <div class="col-6 col-mb-4 col-lg-4 mb-4">
           <div class="flat-card">
             <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-             <div class="flat-card-content">
-          <!-- if statement & checkbox image -->
+            <div class="flat-card-content">
+              <!-- if statement & checkbox image -->
               <div class="flat-card-title">
                 <h4>Event Name</h4>
               </div>
@@ -83,8 +83,8 @@
         <div class="col-6 col-mb-4 col-lg-4 mb-4">
           <div class="flat-card">
             <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-             <div class="flat-card-content">
-          <!-- if statement & checkbox image -->
+            <div class="flat-card-content">
+              <!-- if statement & checkbox image -->
               <div class="flat-card-title">
                 <h4>Event Name</h4>
               </div>
