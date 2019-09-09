@@ -7,22 +7,51 @@
     <div class="col-12 col-mb-5 col-lg-5">
       <div class="search-show-card">
         <h1>What are you looking for?</h1>
-        <!-- should be a simple form as soon as we have the variables -->
-        <form>
+
+        <%= form_tag events_path, method: :get do %>
           <div class="form-group">
-            <label for="location">Where?</label>
-            <input type="search" class="form-control" id="location-input" aria-describedby="emailHelp" placeholder="Tel Aviv">
+          <%= text_field_tag :city,
+            params[:city],
+            class: "form-control",
+            id: "location-input",
+            placeholder: "Where?"
+          %>
           </div>
           <div class="form-group">
-            <label for="date">When?</label>
-            <input type="password" class="form-control" id="date" placeholder="Date Selector">
+          <%= date_field_tag :start_date,
+            params[:start_date],
+            class: "form-control",
+            placeholder: "Starting when?"
+          %>
           </div>
-           <div class="form-group">
-            <label for="category">What?</label>
-            <input type="password" class="form-control" id="category" placeholder="Category Dropdown">
+          <div class="form-group">
+          <%= date_field_tag :end_date,
+            params[:end_date],
+            class: "form-control",
+            placeholder: "Ending when?"
+          %>
           </div>
-          <button type="submit" class="btn custom">Submit</button>
-        </form>
+          <div class="form-group">
+          <%= select_tag :event_category,
+            raw(
+              "<option>Weddings</option>
+              <option>Barbeques</option>
+              <option>Movies</option>
+              <option>Barbeques</option>
+              <option>Movies</option>
+              <option>Barbeques</option>
+              <option>Movies</option>
+              <option>Museums</option>"
+            ),
+            # params[:event_category],
+            class: "form-control"
+            # placeholder: "What?"
+          %>
+          </div>
+
+          <%= submit_tag "Submit", class: "btn custom" %>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -61,10 +90,10 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+
 
 
 
