@@ -2,7 +2,7 @@ puts "Starting DB Seed"
 puts "Seeding now..."
 
 # Clear the DB
-
+Booking.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -141,7 +141,7 @@ WISHLIST = [
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: '123456',
     first_name: Faker::Name.male_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
@@ -164,7 +164,7 @@ end
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.domain_word,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: '123456',
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",

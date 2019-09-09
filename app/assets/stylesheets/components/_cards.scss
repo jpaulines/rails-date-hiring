@@ -41,12 +41,68 @@ div.search-show-card a {
 }
 
 .flat-card-content {
-    padding: 24px;
+    padding: 15px;
     flex-grow: 1;
     background-color: #F8F9FA;
 }
+
 .flat-card-actions {
     position: relative;
     background-color: inherit;
     border-top: 1px solid rgba(160,160,160,0.2);
 }
+
+.event-request {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.event-request .event-request-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.event-request p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.event-request small {
+  color: #999999;
+  font-weight: bold;
+}
+.event-request .event-request-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.event-request:hover .event-request-actions{
+  opacity: 1;
+}
+
+.event-request .event-request-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+  &:hover {
+    color: #555555;
+  }
+}
+
+.crop-description {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 10px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+
