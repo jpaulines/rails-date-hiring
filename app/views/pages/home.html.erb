@@ -1,9 +1,71 @@
 <div class="banner">
   <div class="banner-text">
-    <h1>Pages#home</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
 </div>
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-12 col-mb-5 col-lg-5">
+      <div class="search-show-card">
+        <h1>What are you looking for?</h1>
+        <!-- should be a simple form as soon as we have the variables -->
+        <form>
+          <div class="form-group">
+            <label for="location">Where?</label>
+            <input type="email" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Everywhere">
+          </div>
+          <div class="form-group">
+            <label for="date">When?</label>
+            <input type="password" class="form-control" id="date" placeholder="Date Selector">
+          </div>
+           <div class="form-group">
+            <label for="category">What?</label>
+            <input type="password" class="form-control" id="category" placeholder="Category Dropdown">
+          </div>
+          <button type="submit" class="btn custom">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <h1>Trending events close to you..</h1>
+    <div class="row">
+        <div class="col-6 col-mb-4 col-lg-4 mb-4">
+          <div class="flat-card">
+            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
+             <div class="flat-card-content">
+          <!-- if statement & checkbox image -->
+              <div class="flat-card-title">
+                <h4>Event Name</h4>
+              </div>
+              <div class="flat-card-actions">
+                <p>Link to Event Show Page</p>
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-mb-4 col-lg-4 mb-4">
+          <div class="flat-card">
+            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
+             <div class="flat-card-content">
+          <!-- if statement & checkbox image -->
+              <div class="flat-card-title">
+                <h4>Event Name</h4>
+              </div>
+              <div class="flat-card-actions">
+                <p>Link to Event Show Page</p>
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
 
 
