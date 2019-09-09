@@ -34,14 +34,20 @@
           <div class="form-group">
           <%= select_tag :event_category,
             raw(
-              "<option>Weddings</option>
-              <option>Barbeques</option>
-              <option>Movies</option>
-              <option>Barbeques</option>
-              <option>Movies</option>
-              <option>Barbeques</option>
-              <option>Movies</option>
-              <option>Museums</option>"
+              "<option>Dinner Party</option>
+              <option>Family Event</option>
+              <option>Birthday Party</option>
+              <option>Entertainment/Show</option>
+              <option>School Reunion</option>
+              <option>Charity Fundraiser</option>
+              <option>Barbeque</option>
+              <option>Night Club Party</option>
+              <option>Family Vacation</option>
+              <option>Event Premiere</option>
+              <option>House Party</option>
+              <option>Chef'S Tasting</option>
+              <option>Sports Game</option>
+              <option>Bar Mitsvah</option>"
             ),
             # params[:event_category],
             class: "form-control"
@@ -56,7 +62,7 @@
     </div>
   </div>
   <div class="container mt-3">
-    <h1>Trending events close to you..</h1>
+    <h3>Trending events close to you..</h3>
     <div class="row">
         <div class="col-6 col-mb-4 col-lg-4 mb-4">
           <div class="flat-card">
