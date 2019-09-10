@@ -135,6 +135,23 @@ WISHLIST = [
   "Someone who is pretty athletic and can keep up. It will be fun, I promise!"
 ]
 
+CITIES = [
+'Allenby Street',
+'Begin Road',
+'Ben Yehuda',
+'Dizengoff',
+'HaArba\'a',
+'HaMasger',
+'HaYarkon',
+'Ibn Gabirol',
+'Ibn Gabirol',
+'Kaplan',
+'King George',
+'Rothschild Boulevard',
+'Sderot Yerushalayim',
+'Yefet Street'
+]
+
 # Create male users
 
 10.times do
@@ -187,7 +204,7 @@ end
   ev_cat = EVENT_CATEGORIES.sample
   Event.create!(
     name: EVENT_NAMES_PREFIX.sample + ev_cat,
-    location: "Tel Aviv",
+    address: CITIES.sample + " " + rand(1...90).to_s + " Tel Aviv-Yafo",
     event_category: ev_cat,
     date: Date.today + rand(10...30),
     amenities: AMENITIES.sample,

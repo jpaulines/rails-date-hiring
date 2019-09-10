@@ -1,7 +1,9 @@
 import "bootstrap";
-
+import { initMapbox } from '../plugins/init_mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
 // Algolia places
 
+if (document.querySelector('#location-input')) {
 var places = require('places.js');
 places({
   appId: 'plIAULCHR775',
@@ -9,4 +11,9 @@ places({
   container: document.querySelector('#location-input'),
   type: 'city',
 });
+}
+
+// Mapbox
+
+initMapbox();
 

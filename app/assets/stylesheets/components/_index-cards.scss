@@ -16,7 +16,7 @@
 }
 
 .search-details {
-  height: 5px;
+  height: 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,10 +26,12 @@
 .card-product {
   overflow: hidden;
   height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 12px;
 }
 
 .card-product img {
@@ -52,6 +54,40 @@
   margin-top: 8px;
 }
 
+.card-product-details {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ .card-product-details a {
+  color: #696969;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.card-product-details h2 {
+  // font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: 'Life Savers', cursive;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
+  height: 70%;
+  width: 100%;
 }
+
+.card-product .card-product-price {
+  height: 30%;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
