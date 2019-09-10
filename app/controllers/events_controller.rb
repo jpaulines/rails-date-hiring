@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show]
-
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   def show
     # @event = Event.find(params[:id])
     @booking = Booking.new
     @user = @event.user
+    @last_event = Event.last
   end
 
   def new
@@ -13,9 +13,9 @@ class EventsController < ApplicationController
   end
 
   def create
-     @event = Event.new(event_params)
-     @event.user = current_user
-     authorize @event
+    @event = Event.new(event_params)
+    @event.user = current_user
+    authorize @event
     if @event.save!
       redirect_to event_path(@event)
     else
@@ -24,11 +24,19 @@ class EventsController < ApplicationController
   end
 
   def edit
-    authorize @event
   end
 
   def update
-    authorize @event
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: 'Your event was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to dashboard_path, notice: 'Your event was successfully destroyed.'
   end
 
   private
