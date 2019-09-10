@@ -4,7 +4,7 @@
       <div class ="search-show-card">
         <%= simple_form_for @event do |f| %>
           <%= f.input :name %>
-          <%= f.input :location %>
+          <%= f.input :address %>
           <%= f.input :date %>
           <%= f.input :amenities, as: :select, collection: ["Flight included", "Hotel included", "Meals included"] %>
           <%= f.input :event_description %>
