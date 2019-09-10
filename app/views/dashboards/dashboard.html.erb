@@ -3,26 +3,28 @@
   <div class="row">
     <% @events.each do |event| %>
     <div class="col-6 col-mb-4 col-lg-4 mb-4">
-      <div class="profile-card">
-        <% if event.event_image.present? %>
-        <div class="profile-card-image" style="background-image: url(<%= event.event_image %>)"></div>
-        <% else %>
-        <div class="profile-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-        <% end %>
-        <div class="profile-card-content">
-          <!-- if statement & checkbox image -->
-          <div class="profile-card-title">
-            <p class="category-tag"><%= event.event_category %></p>
-            <h4><%= event.name %></h4>
-            <p class="crop-description"><%= event.event_description %></p>
-          </div>
-          <div class="profile-card-actions">
-            <p>See more
-              <i class="fa fa-pencil"></i>
-            <i class="fa fa-trash-o"></i></p>
+      <%# link_to event_path(event) do  %>
+        <div class="profile-card">
+          <% if event.event_image.present? %>
+          <div class="profile-card-image" style="background-image: url(<%= event.event_image %>)"></div>
+          <% else %>
+          <div class="profile-card-image" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')"></div>
+          <% end %>
+          <div class="profile-card-content">
+            <!-- if statement & checkbox image -->
+            <div class="profile-card-title">
+              <p class="category-tag"><%= event.event_category %></p>
+              <h4><%= event.name %></h4>
+              <p class="crop-description"><%= event.event_description %></p>
+            </div>
+            <div class="profile-card-actions">
+                <%= link_to 'See more', event_path(event)%>
+                <i class="fa fa-pencil"></i>
+              <i class="fa fa-trash-o"></i></p>
+            </div>
           </div>
         </div>
-      </div>
+        <%# end %>
     </div>
     <% end %>
   </div>
