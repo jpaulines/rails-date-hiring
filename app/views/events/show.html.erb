@@ -1,5 +1,5 @@
 
-<div class="bannerevent" style="background-image: url('<%= cl_image_path @event.event_image.url %>')"> </div>
+<div class="bannerevent" style='background-image: url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'> </div>
 <div class="container">
 
 
@@ -24,7 +24,7 @@
         <!--
            t.bigint "user_id"
            t.bigint "event_id"
-           t.boolean "approved"ƒ
+           t.boolean "approved"
            t.string "motivation"
         -->
     <div class="col-12 col-lg-6">

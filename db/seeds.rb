@@ -2,7 +2,7 @@ puts "Starting DB Seed"
 puts "Seeding now..."
 
 # Clear the DB
-
+Booking.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -154,16 +154,16 @@ CITIES = [
 
 # Create male users
 
-20.times do
+15.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: "123456",
     first_name: Faker::Name.male_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018672/Accompany/brad_pitt_nwz7h7.jpg",
+    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     height: (rand(1.6...1.9)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -177,16 +177,16 @@ end
 
 # Create female users
 
-20.times do
+15.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.domain_word,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: "123456",
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018673/Accompany/angelina_t4emea.jpg",
+    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     height: (rand(1.50...1.75)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -200,7 +200,7 @@ end
 
 # create events and assign a user to each
 
-80.times do
+60.times do
   ev_cat = EVENT_CATEGORIES.sample
   Event.create!(
     name: EVENT_NAMES_PREFIX.sample + ev_cat,
@@ -210,7 +210,7 @@ end
     amenities: AMENITIES.sample,
     event_description: "This is going to be a really enjoyable #{ev_cat}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
     wishlist: WISHLIST.sample,
-    event_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018283/Accompany/wedding_ckqbm9.jpg",
+    event_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     user_id: User.all.sample.id,
     cost: ["0", "50", "75", "100", "150", "250"].sample,
   )

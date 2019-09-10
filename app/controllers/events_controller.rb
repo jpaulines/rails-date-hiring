@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @start_date = Date.parse(params["start_date"])
@@ -19,8 +19,10 @@ class EventsController < ApplicationController
   end
 
   def show
+    @def = "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg"
     @booking = Booking.new
     @user = @event.user
+    @last_event = Event.last
   end
 
   def new
@@ -31,12 +33,28 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-     authorize @event
+    authorize @event
     if @event.save!
       redirect_to event_path(@event)
     else
       render 'new'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: 'Your event was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to dashboard_path, notice: 'Your event was successfully destroyed.'
   end
 
   private
