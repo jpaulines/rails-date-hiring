@@ -22,7 +22,6 @@ class EventsController < ApplicationController
     @def = "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg"
     @booking = Booking.new
     @user = @event.user
-    @last_event = Event.last
   end
 
   def new
