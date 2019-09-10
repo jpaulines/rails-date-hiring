@@ -1,0 +1,25 @@
+<div class="container pt-4 d-flex">
+  <div class = "row ">
+     <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class ="search-show-card">
+        <%= simple_form_for @event do |f| %>
+          <%= f.input :name %>
+          <%= f.input :location %>
+          <%= f.input :date %>
+          <%= f.input :amenities, as: :select, collection: ["Flight included", "Hotel included", "Meals included"] %>
+          <%= f.input :event_description %>
+          <%= f.input :wishlist, :label => "What you are looking for" %>
+          <%= f.input :event_image %>
+          <%= f.input :cost %>
+
+          <%= f.submit class: "btn custom" %>
+          <% end %>
+      </div>
+    </div>
+     <div class="col-sm-12 col-md-6 col-lg-6">
+      <img class ="img-new-event" src="https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
+  </div>
+ </div>
+</div>
+
+
