@@ -16,6 +16,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @event
+  end
+
+  def update
+    authorize @event
+  end
+
 end
 
 private
