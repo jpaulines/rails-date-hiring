@@ -158,7 +158,7 @@ CITIES = [
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
-    password: "123456",
+    password: '123456',
     first_name: Faker::Name.male_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
@@ -181,7 +181,7 @@ end
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.domain_word,
-    password: "123456",
+    password: '123456',
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
