@@ -154,7 +154,7 @@ CITIES = [
 
 # Create male users
 
-10.times do
+20.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
@@ -177,7 +177,7 @@ end
 
 # Create female users
 
-10.times do
+20.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.domain_word,
@@ -200,7 +200,7 @@ end
 
 # create events and assign a user to each
 
-40.times do
+80.times do
   ev_cat = EVENT_CATEGORIES.sample
   Event.create!(
     name: EVENT_NAMES_PREFIX.sample + ev_cat,
@@ -208,7 +208,7 @@ end
     event_category: ev_cat,
     date: Date.today + rand(10...30),
     amenities: AMENITIES.sample,
-    event_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.",
+    event_description: "This is going to be a really enjoyable #{ev_cat}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
     wishlist: WISHLIST.sample,
     event_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018283/Accompany/wedding_ckqbm9.jpg",
     user_id: User.all.sample.id,
