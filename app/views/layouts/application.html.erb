@@ -7,15 +7,15 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
   </head>
   <body>
-<!--     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <!-- <div class="<%# 'container' unless params[:controller] == 'pages' && params[:action] == 'home' %>"> -->

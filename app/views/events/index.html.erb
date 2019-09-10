@@ -1,0 +1,39 @@
+<div class="search-details">
+</div>
+
+<div class="index-container">
+
+  <div class="col-8">
+
+    <% @events.each do |event| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-details">
+        <div class="card-product-infos">
+          <h4><%= link_to event.name, event_path(event) %></h4>
+          <p><%= event.date %></p>
+          <p><%= event.event_category %></p>
+        </div>
+        <div class="card-product-price">
+          <h4>Avatar</h4>
+          <h4>$<%= event.cost %></h4>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+
+
+  <div class="col-4">
+    <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+  </div>
+
+

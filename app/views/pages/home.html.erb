@@ -7,64 +7,102 @@
     <div class="col-12 col-mb-5 col-lg-5">
       <div class="search-show-card">
         <h1>What are you looking for?</h1>
-        <!-- should be a simple form as soon as we have the variables -->
-        <form>
-          <div class="form-group">
-            <label for="location">Where?</label>
-            <input type="email" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Everywhere">
-          </div>
-          <div class="form-group">
-            <label for="date">When?</label>
-            <input type="password" class="form-control" id="date" placeholder="Date Selector">
-          </div>
-           <div class="form-group">
-            <label for="category">What?</label>
-            <input type="password" class="form-control" id="category" placeholder="Category Dropdown">
-          </div>
-          <button type="submit" class="btn custom">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="container mt-3">
-    <h1>Trending events close to you..</h1>
-    <div class="row">
-        <div class="col-6 col-mb-4 col-lg-4 mb-4">
-          <div class="flat-card">
-            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-             <div class="flat-card-content">
-          <!-- if statement & checkbox image -->
-              <div class="flat-card-title">
-                <h4>Event Name</h4>
-              </div>
-              <div class="flat-card-actions">
-                <p>Link to Event Show Page</p>
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-mb-4 col-lg-4 mb-4">
-          <div class="flat-card">
-            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-             <div class="flat-card-content">
-          <!-- if statement & checkbox image -->
-              <div class="flat-card-title">
-                <h4>Event Name</h4>
-              </div>
-              <div class="flat-card-actions">
-                <p>Link to Event Show Page</p>
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
-              </div>
-            </div>
-          </div>
-        </div>
 
+        <%= form_tag events_path, method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :city,
+          params[:city],
+          class: "form-control",
+            id: "location-input",
+            placeholder: "Where?"
+            %>
+          </div>
+          <div class="form-group">
+            <%= date_field_tag :start_date,
+            params[:start_date],
+            class: "form-control",
+              placeholder: "Starting when?"
+              %>
+            </div>
+            <div class="form-group">
+              <%= date_field_tag :end_date,
+              params[:end_date],
+              class: "form-control",
+                placeholder: "Ending when?"
+                %>
+              </div>
+              <div class="form-group">
+                <%= select_tag :event_category,
+                raw(
+                  "<option>Dinner Party</option>
+                  <option>Family Event</option>
+                  <option>Wedding</option>
+                  <option>Birthday Party</option>
+                  <option>Entertainment/Show</option>
+                  <option>School Reunion</option>
+                  <option>Charity Fundraiser</option>
+                  <option>Barbeque</option>
+                  <option>Night Club Party</option>
+                  <option>Family Vacation</option>
+                  <option>Event Premiere</option>
+                  <option>House Party</option>
+                  <option>Chef'S Tasting</option>
+                  <option>Sports Game</option>
+                  <option>Bar Mitsvah</option>"
+                  ),
+            # params[:event_category],
+            class: "form-control"
+            # placeholder: "What?"
+            %>
+          </div>
+
+          <%= submit_tag "Submit", class: "btn custom" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <h3>Trending events close to you..</h3>
+      <div class="row">
+        <div class="col-6 col-mb-4 col-lg-4 mb-4">
+          <div class="flat-card">
+            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
+            <div class="flat-card-content">
+              <!-- if statement & checkbox image -->
+              <div class="flat-card-title">
+                <h4>Event Name</h4>
+              </div>
+              <div class="flat-card-actions">
+                <p>Link to Event Show Page</p>
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-mb-4 col-lg-4 mb-4">
+          <div class="flat-card">
+            <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
+            <div class="flat-card-content">
+              <!-- if statement & checkbox image -->
+              <div class="flat-card-title">
+                <h4>Event Name</h4>
+              </div>
+              <div class="flat-card-actions">
+                <p>Link to Event Show Page</p>
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+
+
 
 
 

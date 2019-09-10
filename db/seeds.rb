@@ -135,9 +135,26 @@ WISHLIST = [
   "Someone who is pretty athletic and can keep up. It will be fun, I promise!"
 ]
 
+CITIES = [
+'Allenby Street',
+'Begin Road',
+'Ben Yehuda',
+'Dizengoff',
+'HaArba\'a',
+'HaMasger',
+'HaYarkon',
+'Ibn Gabirol',
+'Ibn Gabirol',
+'Kaplan',
+'King George',
+'Rothschild Boulevard',
+'Sderot Yerushalayim',
+'Yefet Street'
+]
+
 # Create male users
 
-10.times do
+15.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
@@ -146,7 +163,7 @@ WISHLIST = [
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018672/Accompany/brad_pitt_nwz7h7.jpg",
+    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     height: (rand(1.6...1.9)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -160,7 +177,7 @@ end
 
 # Create female users
 
-10.times do
+15.times do
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.domain_word,
@@ -169,7 +186,7 @@ end
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018673/Accompany/angelina_t4emea.jpg",
+    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     height: (rand(1.50...1.75)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -183,17 +200,17 @@ end
 
 # create events and assign a user to each
 
-40.times do
+60.times do
   ev_cat = EVENT_CATEGORIES.sample
   Event.create!(
     name: EVENT_NAMES_PREFIX.sample + ev_cat,
-    location: "Tel Aviv",
+    address: CITIES.sample + " " + rand(1...90).to_s + " Tel Aviv-Yafo",
     event_category: ev_cat,
     date: Date.today + rand(10...30),
     amenities: AMENITIES.sample,
-    event_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.",
+    event_description: "This is going to be a really enjoyable #{ev_cat}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
     wishlist: WISHLIST.sample,
-    event_image: "https://res.cloudinary.com/dbkv4vr3z/image/upload/v1568018283/Accompany/wedding_ckqbm9.jpg",
+    event_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     user_id: User.all.sample.id,
     cost: ["0", "50", "75", "100", "150", "250"].sample,
   )
