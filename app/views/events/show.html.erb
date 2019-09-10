@@ -1,6 +1,11 @@
 
+<div class="bannerevent" style="background-image: url('<%= cl_image_path @event.event_image.url %>')"> </div>
 <div class="container">
+
+
+
   <div class="row">
+
     <!-- show the event_image -->
     <!-- show the tags for event_category (model not created yet) on the image -->
     <!-- show event details below-->
@@ -13,6 +18,7 @@
        t.string "wishlist"
        t.string "cost"
       -->
+#should we keep that ?
     <div class="col-12 col-lg-6">
       <%= cl_image_tag(@last_event.event_image.url)%>
       <h2><%= @event.name %></h2>
@@ -26,26 +32,43 @@
       <h4>Cost:</h4>
       <p><%= @event.cost %> $</p>
     </div>
+# end of the comment
     <!-- show booking new-->
-    <!-- form motivation field -->
-    <!-- form button submit -->
-      <!--
-         t.bigint "user_id"
-         t.bigint "event_id"
-         t.boolean "approved"
-         t.string "motivation"
-      -->
-
-    <div class="col-12 col-lg-2">
+      <!-- form motivation field -->
+      <!-- form button submit -->
+        <!--
+           t.bigint "user_id"
+           t.bigint "event_id"
+           t.boolean "approved"
+           t.string "motivation"
+        -->
+    <div class="col-12 col-lg-6">
+      <div id="containerIntro">
+        <h2 class="text-dark"><%= @event.name %></h2>
+        <p class="text-dark">at <%= @event.location %> on <%= @event.date %></p>
+      </div>
+        <div class="mt-3">
+        <h3>About the event</h3>
+        <p><%= @event.event_description %></p>
+        <h4>What's included:</h4>
+        <p><%= @event.amenities %></p>
+        <h4>Looking for:</h4>
+        <p><%= @event.wishlist %></p>
+        <h4>Cost:</h4>
+        <p><%= @event.cost %> $</p>
+      </div>
       <% if @event.bookings.where(user_id: current_user.id).empty? %>
         <%= simple_form_for [@event, @booking] do |f| %>
           <%= f.input :motivation %>
           <%= f.submit "Book this event", class: "btn custom" %>
         <% end %>
       <% else %>
-        <p id="booked-box">You have booked this event</p>
+        <p id="booked-box">This event is pending approval.</p>
       <% end %>
     </div>
+
+
+
     <!-- show on right side user_id -->
     <!-- show avatar profile_image -->
       <!--
@@ -63,12 +86,15 @@
          t.integer "age"
          t.string "gender"
        -->
-    <div class="col-12 col-lg-4 border">
+    <div class="col-12 col-lg-6 border">
       <div class="d-flex justify-content-start">
-        <%= image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
+        <%= image_tag @user.profile_image, {class: "rounded-circle mt-3", width: 70, height: 70} %>
         <div>
-          <h4><%= @user.username.capitalize %></h4>
-          <p><%= @user.city %></p>
+          <h4 class="ml-3 mt-4 text-dark"><%= @user.username.capitalize %></h4>
+          <div id="containerBio">
+            <i class="fas fa-map-pin ml-3 text-dark"></i>
+            <p class="text-dark ml-1"><%= @user.city %></p>
+          </div>
         </div>
       </div>
       <hr>
