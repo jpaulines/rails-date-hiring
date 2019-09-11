@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = current_user
     @start_date = Date.parse(params["start_date"])
     @end_date = Date.parse(params["end_date"])
     @date_range = (@start_date..@end_date)
@@ -34,6 +35,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @user = current_user
     authorize @event
   end
 
