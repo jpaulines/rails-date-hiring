@@ -1,0 +1,65 @@
+.profile-header {
+  background-color: $card-gray;
+  padding: 60px;
+  padding-left: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1.h1-profile-wm {
+  font-family: 'PT Serif';
+  font-weight: 400;
+  font-size: 32px;
+  color: $green;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+h1.h1-profile-sm {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 20px;
+  color: $green;
+  margin: 0;
+}
+.about-card-details {
+  border-top: 2px solid rgba(70, 193, 144, .5);
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-bottom: 30px;
+  background-color: rgba(248, 249, 250, .7);
+  margin-bottom: 20px;
+}
+
+.details-left p i {
+  color: $green;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.details-right p i {
+  color: $green;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.details-left p {
+  font-weight: 300;
+}
+
+.details-right p {
+  font-weight: 300;
+}
+
+.card-event-company-connection {
+  height: 50px;
+  border-left: 3px dashed rgba(70, 193, 144, .5);
+}
+
+.about-card {
+  margin-top: 50px;
+}
+
