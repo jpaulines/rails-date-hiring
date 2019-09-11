@@ -1,15 +1,21 @@
 .bannerevent {
   background-size: cover;
-  padding: 150px 0;
+  padding: 300px 0;
   background-attachment: fixed;
-  background-position: 0px -200px;
+  // background-position: 0px -100px;
+  position: relative;
 }
 
 #containerIntro h2, #containerIntro p {
-    display: inline;
+  display: inline;
 }
 
 #containerBio i, #containerBio p {
   display: inline;
 }
 
+.bannerevent-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
