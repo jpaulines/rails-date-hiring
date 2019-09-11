@@ -3,6 +3,7 @@
   padding: 300px 0;
   background-attachment: fixed;
   // background-position: 0px -100px;
+  position: relative;
 }
 
 #containerIntro h2, #containerIntro p {
@@ -14,5 +15,7 @@
 }
 
 .bannerevent-text {
-
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }

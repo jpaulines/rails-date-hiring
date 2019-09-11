@@ -36,7 +36,7 @@
 
       <div class="show-detail-card">
         <div class="show-position-absolute">
-          <% if @event.cost == 0 || nil %>
+          <% if @event.cost == "0" || "" %>
             <p>Free</p>
           <% else %>
             <p><span class="font-weight-lighter"></span><%= @event.cost %>$</p>
@@ -52,16 +52,40 @@
             <p><%= @event.event_description %></p>
             <hr>
 
-            <p>
-              <span class="font-weight-lighter">Includes: </span>
-              <%= @event.amenities %>
-            </p>
+            <div class="d-flex justify-content-left">
+              <p>
+                <span class="font-weight-lighter mr-4">What's included? </span>
+              </p>
 
-            <% if @event.amenities %>
-            <!-- "Flight included", "Hotel included", "Meals included" -->
-            <% end %>
+              <% if @event.amenities == "Flight included"%>
+              <!-- "Flight included", "Hotel included", "Meals included" -->
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% elsif  @event.amenities == "Hotel included" %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% elsif  @event.amenities == "Meals included" %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#46C190; font-size:20px;"></i>
+                </div>
+              <% else %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% end %>
+            </div>
 
-            <p><span class="font-weight-lighter">Looking for: </span><%= @event.wishlist %></p>
+            <p><span class="font-weight-lighter mr-4">What am I looking for? </span><%= @event.wishlist %></p>
           </div>
         </div>
       </div>
@@ -117,7 +141,7 @@
 
       <div class="show-detail-card">
         <div class="d-flex justify-content-start">
-          <%= image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
+          <%= cl_image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
           <div>
             <h5 class="ml-3 mt-2">Hosted by <strong><%= @user.username.capitalize %></strong></h5>
             <div id="containerBio">
