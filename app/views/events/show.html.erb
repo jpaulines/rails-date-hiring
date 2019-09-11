@@ -1,7 +1,10 @@
 
-<div class="bannerevent" style='background-image: url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'>
+<div class="bannerevent" style='background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'>
   <div class="container">
-    <h1 class="bannerevent-text"><%= @event.event_category %></h1>
+    <h1 class="bannerevent-text text-light"><%= @event.event_category %></h1>
   </div>
 </div>
 

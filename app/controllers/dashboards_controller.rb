@@ -2,6 +2,7 @@ class DashboardsController < ApplicationController
   def dashboard
     authorize :dashboard, :profile?
     @events = current_user.events
+    @user = current_user
     @my_bookings = current_user.bookings
     @my_bookings_pending = current_user.bookings.where(approved: nil)
     @my_bookings_approved = current_user.bookings.where(approved: true)
