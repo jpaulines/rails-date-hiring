@@ -1,0 +1,27 @@
+ <div class="container">
+   <div class="row">
+    <div class="col-12 col-mb-6 col-lg-6 mt-5 offset-3">
+    <% @user.events.each do |event| %>
+        <div class="card-event-company">
+          <div class="d-flex">
+             <%# image_tag event.event_image, class: "avatar-large mr-2" %>
+            <div class="card-event-company-content">
+              <p><span class="p-question">Event? </span><%= event.name %></p>
+              <p><span class="p-question">When? </span><%= event.date %></p>
+              <p><span class="p-question">Who? </span><%= event.user.first_name %> & <%= @user.first_name %></p>
+              <p><span class="p-question">Review?</p>
+            </div>
+          </div>
+          <div class="card-event-company-actions">
+            <%= link_to profile_path(event.user) do %>
+              <i class="fas fa-user-alt"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-event-company-connection mb-1 mt-1">
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

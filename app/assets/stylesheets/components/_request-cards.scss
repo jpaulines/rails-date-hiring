@@ -1,0 +1,161 @@
+.card-event-request {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background-color: white;
+  padding: 8px 16px;
+  border: 2px solid rgba(230, 230, 230, 1);
+  height: 100px;
+}
+
+.card-event-request .event-request-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.card-event-request p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-event-request-content p {
+  font-weight: 300px;
+  font-size: 14px;
+  padding: 2px;
+}
+
+.card-event-request-content .p-question {
+  font-weight: 600;
+  color: $green;
+  padding-right: 2px;
+}
+
+.card-event-ahead-content p {
+  font-weight: 300px;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.card-event-ahead-content .p-question {
+  font-weight: 600;
+  color: $green;
+  padding-right: 2px;
+}
+
+.card-event-request small {
+  color: #999999;
+  font-weight: bold;
+}
+
+.card-event-request .card-event-request-actions {
+  opacity: 1;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  transition: ease .3s;
+  button {
+    background: transparent;
+    border: 0;
+  }
+}
+
+// .card-event-request:hover .card-event-request-actions{
+//   opacity: 1;
+// }
+
+.card-event-request .card-event-request-actions a {
+  margin-left: 16px;
+  font-size: 14px;
+  // &:hover {
+  //   color: #555555;
+  // }
+}
+
+.card-event-request .card-event-request-actions i {
+  color: $green;
+  font-size: 18px;
+}
+
+// Events your accompanying
+
+
+.card-event-company {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background-color: $green;
+  padding: 8px 16px;
+  // border: 2px solid rgba(230, 230, 230, 1);
+  height: 100px;
+}
+
+.card-event-company .event-request-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.card-event-company p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-event-company-content p {
+  font-weight: 300px;
+  font-size: 14px;
+  padding: 2px;
+  color: white;
+}
+
+.card-event-company-content .p-question {
+  font-weight: 600;
+  color: white;
+  padding-right: 2px;
+}
+
+.card-event-company-content p {
+  font-weight: 300px;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.card-event-company-content .p-question {
+  font-weight: 600;
+  color: white;
+  padding-right: 2px;
+}
+
+.card-event-company small {
+  color: #999999;
+  font-weight: bold;
+}
+
+.card-event-company .card-event-company-actions {
+  opacity: 1;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  transition: ease .3s;
+  button {
+    background: transparent;
+    border: 0;
+  }
+}
+
+// .card-event-request:hover .card-event-request-actions{
+//   opacity: 1;
+// }
+
+.card-event-company .card-event-company-actions a {
+  margin-left: 16px;
+  font-size: 14px;
+  // &:hover {
+  //   color: #555555;
+  // }
+}
+
+.card-event-company .card-event-company-actions i {
+  color: white;
+  font-size: 18px;
+}

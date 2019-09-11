@@ -53,7 +53,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to dashboard_path, notice: 'Your event was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Your event was successfully deleted.'
   end
 
   private
