@@ -2,9 +2,9 @@ puts "Starting DB Seed"
 puts "Seeding now..."
 
 # Clear the DB
+Event.destroy_all
 EventCategory.destroy_all
 Booking.destroy_all
-Event.destroy_all
 User.destroy_all
 
 
@@ -102,21 +102,21 @@ EVENT_NAMES_PREFIX = [
 ]
 
 EVENT_CATEGORIES = [
-  "wedding",
-  "dinner party",
-  "family event",
-  "birthday party",
-  "entertainment/show",
-  "school reunion",
-  "charity fundraiser",
-  "barbeque",
-  "night club party",
-  "family vacation",
-  "event premiere",
-  "house party",
-  "chef's tasting",
-  "sports game",
-  "bar Mitsvah"
+  "Wedding",
+  "Dinner Party",
+  "Family Event",
+  "Birthday Party",
+  "Theater Show",
+  "School Reunion",
+  "Charity Fundraiser",
+  "Barbeque",
+  "Club Event",
+  "Family Vacation",
+  "Event Premiere",
+  "House Party",
+  "Chef's Tasting",
+  "Sports Game",
+  "Bar Mitsvah"
 ]
 
 WISHLIST = [

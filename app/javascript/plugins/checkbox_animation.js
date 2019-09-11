@@ -7,3 +7,4 @@ const toggleActive = () => { $(document).ready(function(){
 };
 
 export { toggleActive };
+

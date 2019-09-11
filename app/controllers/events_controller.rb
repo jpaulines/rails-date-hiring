@@ -3,8 +3,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @start_date = Date.parse(params["start_date"])
-    @end_date = Date.parse(params["end_date"])
+    @start_date = Date.parse(params["date_range"].first(10))
+    @end_date = Date.parse(params["date_range"].last(10))
     @date_range = (@start_date..@end_date)
     @city = params["city"]
     @event_categories = params["post"]["category_ids"]
