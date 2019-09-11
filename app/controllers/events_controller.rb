@@ -7,8 +7,8 @@ class EventsController < ApplicationController
     @end_date = Date.parse(params["end_date"])
     @date_range = (@start_date..@end_date)
     @city = params["city"]
-    @event_category = params["event_category"].downcase
-    @events = policy_scope(Event).near(@city, 50).where(date: (@date_range)).where(event_category: @event_category)
+    @event_categories = params["post"]["category_ids"]
+    @events = policy_scope(Event).near(@city, 50).where(date: (@date_range)).where(event_category: (@event_categories))
     @markers = @events.map do |event|
         {
           lat: event.latitude,

@@ -2,6 +2,7 @@ puts "Starting DB Seed"
 puts "Seeding now..."
 
 # Clear the DB
+EventCategory.destroy_all
 Booking.destroy_all
 Event.destroy_all
 User.destroy_all
@@ -152,6 +153,12 @@ CITIES = [
 'Yefet Street'
 ]
 
+# Create static list of event categories
+
+EVENT_CATEGORIES.each do |event_category|
+  EventCategory.create(name: event_category)
+end
+
 # Create male users
 
 15.times do
@@ -201,9 +208,9 @@ end
 # create events and assign a user to each
 
 60.times do
-  ev_cat = EVENT_CATEGORIES.sample
+  ev_cat = EventCategory.all.sample
   Event.create!(
-    name: EVENT_NAMES_PREFIX.sample + ev_cat,
+    name: EVENT_NAMES_PREFIX.sample + ev_cat.name,
     address: CITIES.sample + " " + rand(1...90).to_s + " Tel Aviv-Yafo",
     event_category: ev_cat,
     date: Date.today + rand(10...30),

@@ -1,6 +1,7 @@
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { toggleActive } from '../plugins/checkbox_animation';
 // Algolia places
 
 if (document.querySelector('#location-input')) {
@@ -16,4 +17,5 @@ places({
 // Mapbox
 
 initMapbox();
+toggleActive();
 
