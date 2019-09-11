@@ -11,27 +11,38 @@
         <%= f.input :email,
         required: true,
         autofocus: true,
-        input_html: { autocomplete: "email" }%>
+        input_html: { autocomplete: "email" }, placeholder: 'email@gmail.com'%>
         <%= f.input :password,
         required: true,
         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-        input_html: { autocomplete: "new-password" } %>
+        input_html: { autocomplete: "new-password" }, placeholder: '******' %>
         <%= f.input :password_confirmation,
         required: true,
-        input_html: { autocomplete: "new-password" } %>
-        <%= f.input :first_name, required: true %>
-        <%= f.input :last_name, required: true %>
-        <%= f.input :username, required: true %>
-        <%= f.input :city, required: true %>
+        input_html: { autocomplete: "new-password" }, placeholder: '******' %>
+        <%= f.input :first_name, required: true, placeholder: 'Merry' %>
+        <%= f.input :last_name, required: true, placeholder: 'Smith' %>
+        <%= f.input :username, required: true, placeholder: 'Merry S.' %>
+        <%= f.input :city, required: true, placeholder: 'Tel Aviv' %>
         <%= f.input :profile_image, required: true %>
-        <%= f.input :height, required: false %>
+        <%= f.input :height, required: false, placeholder: '1.70' %>
         <%= f.input :age, required: false %>
-        <%= f.input :strength, required: false %>
+        <%= f.input :strength, required: false,as: :select, collection: [
+          "Sense of Humor",
+          "Kindness",
+          "Self-Confidence",
+          "Self-Awareness",
+          "Charismatic",
+          "Good looking",
+          "Educated"
+          ]
+        %>
         <%= f.input :language, required: false %>
-        <%= f.input :hidden_talent, required: false %>
-        <%= f.input :talkativeness, required: false %>
-        <%= f.input :funniness, required: false %>
-        <%= f.input :description, required: false %>
+        <%= f.input :hidden_talent, required: false, placeholder: 'ex: Moonwalk' %>
+        <label for="Talk">Talkativess</label>
+        <input type="range" class="custom-range" id="customRange1" name=user[talkativeness] min="0" max="5">
+        <label for="Talk">Funniness</label>
+        <input type="range" class="custom-range" id="customRange1" name=user[Funniness] min="0" max="5">
+        <%= f.input :description, required: false, :label => "Tag line", placeholder: 'ex: I am a very good dancer'  %>
 
       </div>
 
@@ -39,8 +50,9 @@
         <%= f.button :submit, "Sign up" %>
       </div>
       <% end %>
-
+      <br>
       <%= render "devise/shared/links" %>
+      <br>
 
 
     </div>
