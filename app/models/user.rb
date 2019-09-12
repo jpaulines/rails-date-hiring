@@ -6,8 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events
-  has_many :bookings
+  has_many :sent_reviews, :class_name => 'Review', :foreign_key => 'reviewer_id', dependent: :destroy
+  has_many :received_reviews, :class_name => 'Review', :foreign_key => 'reviewee_id', dependent: :destroy
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true
