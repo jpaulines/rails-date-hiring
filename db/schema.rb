@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_133100) do
+ActiveRecord::Schema.define(version: 2019_09_11_090049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2019_09_10_133100) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "event_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "default_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -38,9 +45,10 @@ ActiveRecord::Schema.define(version: 2019_09_10_133100) do
     t.string "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "event_category"
     t.float "latitude"
     t.float "longitude"
+    t.bigint "event_category_id"
+    t.index ["event_category_id"], name: "index_events_on_event_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -72,5 +80,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_133100) do
 
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
+  add_foreign_key "events", "event_categories"
   add_foreign_key "events", "users"
 end

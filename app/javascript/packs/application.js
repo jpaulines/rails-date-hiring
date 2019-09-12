@@ -1,6 +1,8 @@
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { toggleActive } from '../plugins/checkbox_animation';
+import "../plugins/flatpickr";
 import { initSweetalert } from '../plugins/init_sweetalert';
 // Algolia places
 
@@ -17,6 +19,7 @@ places({
 // Mapbox
 
 initMapbox();
+toggleActive();
 
 
 
