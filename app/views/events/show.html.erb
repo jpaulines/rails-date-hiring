@@ -2,9 +2,9 @@
 <div class="bannerevent" style='background-image: linear-gradient(
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
-    ), url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'>
+    ), url("<%= @event.event_image.file.nil? ? @event.event_category.default_image : @event.event_image %>")'>
   <div class="container">
-    <h1 class="bannerevent-text text-light"><%= @event.event_category %></h1>
+    <h1 class="bannerevent-text text-light"><%= @event.event_category.name %></h1>
   </div>
 </div>
 
@@ -101,11 +101,14 @@
                 <%= f.submit "Book this event", class: "btn custom", id: "approve-request-sweet" %>
               <% end %>
             <% elsif @event.bookings.where(user_id: current_user.id).first.approved %>
-              <p id="booked-box">Your request has been approved 🥳, please refer to your dashboard for contact detais.</p>
+              <span class="font-weight-lighter mr-4">Booking status: </span>
+              <span id="booked-box">Your request has been approved 🥳, please refer to your dashboard for contact detais.</span>
             <% elsif @event.bookings.where(user_id: current_user.id).first.approved.nil? %>
-              <p id="booked-box">Your request is pending approval 🧐...</p>
+              <span class="font-weight-lighter mr-4">Booking status: </span>
+              <span class="text-warning" id="booked-box">Your request is pending approval 🧐...</span>
             <% else %>
-              <p id="booked-box">Your request has been declined 🙃, maybe next time!</p>
+              <span class="font-weight-lighter mr-4">Booking status: </span>
+              <span class="text-danger" id="booked-box">Your request has been declined 🙃, maybe next time!</span>
             <% end %>
         </div>
       <% end %>

@@ -153,6 +153,22 @@ CITIES = [
 'Yefet Street'
 ]
 
+MALE_PHOTOS = [
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286490/profile%20images/man1_bv0wqq.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286490/profile%20images/man2_qfy3f9.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man3_gujgoz.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man4_sl4xjk.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man5_sta6ow.png"
+]
+
+FEMALE_PHOTOS = [
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman1_w1esnj.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman2_ejfuq0.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman3_v0oruz.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman4_pq0zdm.jpg",
+"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman5_xxjnox.jpg"
+]
+
 # Create static list of event categories
 
 EVENT_CATEGORIES.each do |event_category|
@@ -170,7 +186,7 @@ end
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
+    remote_profile_image_url: MALE_PHOTOS.sample,
     height: (rand(1.6...1.9)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -193,7 +209,7 @@ end
     last_name: Faker::Name.last_name,
     city: "Tel Aviv",
     description: Faker::Quote.famous_last_words,
-    profile_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
+    remote_profile_image_url: FEMALE_PHOTOS.sample,
     height: (rand(1.50...1.75)).round(2).to_s,
     strength: STRENGTHS.sample,
     language: LANGUAGES.sample,
@@ -215,7 +231,7 @@ end
     event_category: ev_cat,
     date: Date.today + rand(10...30),
     amenities: AMENITIES.sample,
-    event_description: "This is going to be a really enjoyable #{ev_cat}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
+    event_description: "This is going to be a really enjoyable #{ev_cat.name}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
     wishlist: WISHLIST.sample,
     event_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
     user_id: User.all.sample.id,

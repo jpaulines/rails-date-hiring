@@ -1,11 +1,11 @@
-<div class="banner">
-  <div class="banner-text">
-  </div>
+<div class="banner-home">
+  <div class="banner-text-home">Find new company for your adventures</div>
+
 </div>
 
 <div class="container margin-top-negative">
   <div class="row">
-    <div class="col-12 col-mb-5 col-lg-5">
+    <div class="col-12 col-mb-6 col-lg-6">
       <div class="search-show-card">
         <h1>What are you looking for?</h1>
 
@@ -15,7 +15,9 @@
           params[:city],
           class: "form-control",
             id: "location-input",
+            required: true,
             placeholder: "Where?"
+
             %>
           </div>
           <div class="form-group">
@@ -23,20 +25,20 @@
             params[:date_range],
             class: "form-control",
             class: "datepicker",
+              required: true,
               placeholder: "Date range?"
               %>
             </div>
 
 
               <div class="form-group">
-                <label class="control-label check_boxes optional">Event Categories</label>
+                <label class="control-label check_boxes optional">What are you up for?</label>
                 <input type="hidden" name="post[category_ids][]" value="">
                 <div class="category-choices">
                   <% EventCategory.all.each do |category| %>
                   <input type="checkbox" class="d-none" autocomplete="off" value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
                   <label class="category-choice" for="post_category_ids_<%= category.id %>">
                     <%= category.name %>
-                    <i class="fa fa-check"></i>
                   </label>
                   <% end %>
                 </div>
@@ -48,15 +50,26 @@
             </div>
           </div>
         </div>
-        <div class="container mt-3">
-          <h3>Trending events close to you..</h3>
-          <div class="row">
-            <div class="col-6 col-mb-4 col-lg-4 mb-4">
+
+
+      <div class="container mt-3">
+      <h3>Trending events close to you..</h3>
+      </div>
+        <%= render 'events-trending'%>
+
+
+      </div>
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag "resetcheckboxes" %>
+<% end %>
+
+
+  <!--         <div class="col-6 col-mb-4 col-lg-4 mb-4">
               <div class="flat-card">
                 <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1525373612132-b3e820b87cea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="flat-card-content">
+                <div class="flat-card-content"> -->
                   <!-- if statement & checkbox image -->
-                  <div class="flat-card-title">
+                  <!-- <div class="flat-card-title">
                     <h4>Event Name</h4>
                   </div>
                   <div class="flat-card-actions">
@@ -70,9 +83,9 @@
             <div class="col-6 col-mb-4 col-lg-4 mb-4">
               <div class="flat-card">
                 <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-                <div class="flat-card-content">
+                <div class="flat-card-content"> -->
                   <!-- if statement & checkbox image -->
-                  <div class="flat-card-title">
+                 <!--  <div class="flat-card-title">
                     <h4>Event Name</h4>
                   </div>
                   <div class="flat-card-actions">
@@ -82,16 +95,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-<%= content_for(:after_js) do %>
-  <%= javascript_pack_tag "resetcheckboxes" %>
-<% end %>
-
-
-
+            </div> -->
 
 
 
