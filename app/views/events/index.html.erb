@@ -37,12 +37,18 @@
         <div class="card-product-details">
           <div class="card-product-infos">
             <h4><%= link_to event.name, event_path(event) %></h4>
-            <p><%= event.date %></p>
+            <span>Happening on <em><%= event.date %></em></span>
             <p><%= event.event_category.name %></p>
           </div>
           <div class="card-product-price">
-            <h5>Avatar</h5>
+            <div class="avatar-container">
+            <%= cl_image_tag(event.user.profile_image, crop: :fill, id: "index-avatar") %>
+            <p>Hosted by: <em><strong><%= event.user.username %></strong></em></p>
+          </div>
+          <div>
             <h4>$<%= event.cost %></h4>
+            <p><em>paid by attendee</em></p>
+          </div>
           </div>
         </div>
       </div>

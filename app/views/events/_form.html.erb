@@ -1,4 +1,9 @@
-<div class="container pt-4 d-flex">
+<div class="bannerevent" style='background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.4)
+    ), url("https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")'>
+
+<div class="container margin-top-negative">
   <div class = "row ">
      <div class="col-sm-12 col-md-6 col-lg-6">
       <div class ="search-show-card">
@@ -6,23 +11,7 @@
           <%= f.input :name %>
           <%= f.input :address %>
           <%= f.input :date %>
-          <%= f.input :event_category, as: :select, collection: [
-            "wedding",
-            "dinner party",
-            "family event",
-            "birthday party",
-            "entertainment/show",
-            "school reunion",
-            "charity fundraiser",
-            "barbeque",
-            "night club party",
-            "family vacation",
-            "event premiere",
-            "house party",
-            "chef's tasting",
-            "sports game",
-            "bar mitsvah"
-            ]
+          <%= f.association :event_category, as: :select, collection: @event_categories
           %>
           <%= f.input :event_description %>
           <%= f.input :amenities, as: :select, collection: ["Flight included", "Hotel included", "Meals included"] %>
@@ -34,9 +23,7 @@
           <% end %>
       </div>
     </div>
-     <div class="col-sm-12 col-md-6 col-lg-6">
-      <img class ="img-new-event" src="https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
-  </div>
+
  </div>
 </div>
 

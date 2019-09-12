@@ -17,6 +17,7 @@ class EventsController < ApplicationController
           infoWindow: render_to_string(partial: "info_window", locals: { event: event })
         }
     end
+
   end
 
   def show
@@ -36,11 +37,13 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @user = current_user
+    @event_categories = EventCategory.all
     authorize @event
   end
 
   def create
     @event = Event.new(event_params)
+    # @event.event_category_id = EventCategory.find(params[event_category].to_i)
     @event.user = current_user
     authorize @event
     if @event.save!
@@ -51,6 +54,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
@@ -69,7 +73,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :amenities, :event_description, :wishlist, :event_image, :cost, :event_category, :address)
+    params.require(:event).permit(:name, :date, :amenities, :event_description, :wishlist, :event_image, :cost, :event_category_id, :address)
   end
 
   def set_event
