@@ -34,3 +34,9 @@ initSweetalert('#decline-request-sweet', {
   icon: "success"
 });
 
+
+initSweetalert('#book-event-sweet', {
+  title: "You successfully requested to accompany this event!",
+  text: "Please check the status of the booking in your dashboard",
+  icon: "success"
+});

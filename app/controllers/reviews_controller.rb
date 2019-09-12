@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review.reviewee = User.find(params[:user_id])
     authorize @review
     @review.save
-    redirect_to profile_path(@user)
+    redirect_to profile_path(@review.reviewee)
   end
 
  private

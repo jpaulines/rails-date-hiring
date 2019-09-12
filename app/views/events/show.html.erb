@@ -98,7 +98,7 @@
             <% if @event.bookings.where(user_id: current_user.id).empty? %>
               <%= simple_form_for [@event, @booking] do |f| %>
                 <%= f.input :motivation %>
-                <%= f.submit "Book this event", class: "btn custom" %>
+                <%= f.submit "Book this event", class: "btn custom", id: "approve-request-sweet" %>
               <% end %>
             <% elsif @event.bookings.where(user_id: current_user.id).first.approved %>
               <span class="font-weight-lighter mr-4">Booking status: </span>

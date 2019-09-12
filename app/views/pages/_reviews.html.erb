@@ -1,0 +1,33 @@
+ <div class="col-6 p-0 offset-3">
+
+  <% if current_user.id != @user.id %>
+    <h1 class="h1-profile mb-4">Would you like to leave a review?</h1>
+    <%= simple_form_for [@user, @review] do |f| %>
+      <%= f.input :description, label: "What do you think about #{@user.first_name} and the event?", class: "review-label" %>
+      <%= f.input :rating, label: 'How many stars would you give?', class: "review-label" %>
+      <%= f.submit "Leave a review", class: "btn custom" %>
+    <% end %>
+  <% end %>
+
+   <h1 class="h1-profile mb-4">See what other companions said about me</h1>
+  <div class="row">
+    <% @user.received_reviews.each do |review| %>
+    <div class="col-12 col-mb-12 col-lg-12 mb-4">
+      <div class="card-event-request">
+        <div class="d-flex">
+            <%= cl_image_tag review.reviewer.profile_image, class: "avatar-large mr-3" %>
+            <div class="card-event-request-content">
+              <p id="p-reviewer"><%= review.reviewer.first_name %> <%= review.reviewer.last_name %></p>
+              <small><span class="p-stars"><% review.rating.times do %>
+                <i class="fas fa-star mine"></i>
+              <% end %></span></small>
+              <p><span class="review-description"><%= review.description %></span></p>
+            </div>
+          </div>
+      </div>
+    </div>
+      <% end %>
+  </div>
+
+
+</div>
