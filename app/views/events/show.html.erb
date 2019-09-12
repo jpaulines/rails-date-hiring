@@ -39,7 +39,7 @@
 
       <div class="show-detail-card">
         <div class="show-position-absolute">
-          <% if @event.cost == "0" || "" %>
+          <% if @event.cost == "0" || @event.cost == "" %>
             <p>Free</p>
           <% else %>
             <p><span class="font-weight-lighter"></span><%= @event.cost %>$</p>

@@ -35,7 +35,7 @@
       <div class="col-12 col-mb-6 col-lg-6 mb-4">
         <div class="card-event-company">
           <div class="d-flex">
-             <%= cl_image_tag request.user.profile_image, class: "avatar-large mr-2" %>
+             <%= cl_image_tag request.event.user.profile_image, class: "avatar-large mr-2" %>
             <div class="card-event-company-content">
               <p><span class="p-question">Who? </span><%= request.event.user.first_name %> <%= request.event.user.last_name %></p>
               <p><span class="p-question">Event? </span><%= request.event.name %></p>
@@ -58,6 +58,5 @@
           </div>
         </div>
       </div>
-        </div>
-</div>
+    </div>
     <% end %>
