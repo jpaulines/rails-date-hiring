@@ -12,7 +12,7 @@
           <!-- if statement & checkbox image -->
           <div class="booking-card-title">
             <p class="category-tag">
-              <%= booking.event.event_category %>
+              <%= booking.event.event_category.name %>
               <%= link_to event_booking_path(booking.event, booking),
                   method: :delete,
                   data: { confirm: "Are you sure?" } do %>
