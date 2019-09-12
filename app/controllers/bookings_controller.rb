@@ -18,6 +18,12 @@ class BookingsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path, notice: 'Your booking was successfully cancelled.'
+  end
+
   private
 
   def booking_params

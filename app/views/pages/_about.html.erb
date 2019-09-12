@@ -1,0 +1,31 @@
+<div class="about-card">
+<div class="col-6 p-0 offset-3">
+  <div class="about-card-details">
+    <h1 class="h1-profile-sm">Details</h1>
+    <div class="d-flex justify-content-around">
+      <div class="details-left">
+        <p><i class="fas fa-map-marker-alt"></i><span class="details-tag">Location: </span><%=@user.city%></p>
+        <p><i class="fas fa-globe-europe"></i>Language: <%=@user.language %></p>
+      </div>
+      <div class="details-right">
+        <p><i class="fas fa-male"></i>Height: <%=@user.height %></p>
+        <p><i class="fas fa-history"></i>Age: <%=@user.age %></p>
+      </div>
+    </div>
+  </div>
+  <div class="about-card-details">
+    <h1 class="h1-profile-sm">Fun Facts</h1>
+    <div class="d-flex justify-content-around">
+      <div class="details-left">
+        <p><i class="fas fa-dumbbell"></i>Strengths: <%=@user.strength %></p>
+        <p><i class="fas fa-magic"></i>Hidden Talent: <%=@user.hidden_talent%></p>
+      </div>
+      <div class="details-right">
+        <p><i class="fas fa-comment"></i>Talkativeness: <%=@user.talkativeness %> / 5</p>
+        <p><i class="fas fa-laugh-beam"></i>Funniness: <%=@user.funniness%> / 5</p>
+      </div>
+    </div>
+</div>
+
+</div>
+</div>

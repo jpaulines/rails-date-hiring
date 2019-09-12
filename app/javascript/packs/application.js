@@ -1,6 +1,7 @@
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { initSweetalert } from '../plugins/init_sweetalert';
 // Algolia places
 
 if (document.querySelector('#location-input')) {
@@ -16,4 +17,17 @@ places({
 // Mapbox
 
 initMapbox();
+
+
+
+initSweetalert('#approve-request-sweet', {
+  title: "Congrats, you found great company!",
+  text: "Go to 'Events ahead' to find all details about your mate",
+  icon: "success"
+});
+
+initSweetalert('#decline-request-sweet', {
+  title: "You successfully decline this request!",
+  icon: "success"
+});
 
