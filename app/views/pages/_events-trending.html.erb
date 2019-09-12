@@ -1,0 +1,26 @@
+<div class="row">
+  <% @events_first.each do |event| %>
+    <div class="col-6 col-mb-4 col-lg-4 mb-4">
+      <%= link_to event_path(event) do  %>
+        <div class="profile-card">
+          <% if event.event_image.present? %>
+            <div class="profile-card-image" style="background-image: url(<%= event.event_image %>)"></div>
+          <% else %>
+            <div class="profile-card-image" style="background-image: url(<%=event.event_category.default_image %>)"> </div>
+          <% end %>
+        <div class="profile-card-content">
+          <div class="profile-card-title">
+            <p class="category-tag"><%= event.event_category.name %></p>
+            <h4><%= event.name %></h4>
+            <p class="crop-description"><%= event.event_description %></p>
+          </div>
+          <div class="profile-card-actions">
+            <%= link_to 'See more', event_path(event)%>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
