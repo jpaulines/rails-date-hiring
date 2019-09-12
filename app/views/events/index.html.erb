@@ -33,8 +33,7 @@
     <div class="col-8">
       <% @events.each do |event| %>
       <div class="card-product">
-        <%= cl_image_tag(event.event_category.default_image) %>
-        <!-- <img <%= event.event_image.nil? ? cl_image_tag(event.event_category.default_image) : cl_image_tag(event.event_image) %>/> -->
+        <%= event.event_image.file.nil? ? cl_image_tag(event.event_category.default_image) : cl_image_tag(event.event_image) %>
         <div class="card-product-details">
           <div class="card-product-infos">
             <h4><%= link_to event.name, event_path(event) %></h4>
