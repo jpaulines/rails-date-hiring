@@ -146,10 +146,13 @@
       </div>
 
       <div class="show-detail-card">
+
         <div class="d-flex justify-content-start">
+          <%= link_to profile_path(@user) do %>
           <%= cl_image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
+          <% end %>
           <div>
-            <h5 class="ml-3 mt-2">Hosted by <strong><%= @user.username.capitalize %></strong></h5>
+            <h5 class="ml-3 mt-2">Hosted by <strong><%= @user.first_name.capitalize %></strong></h5>
             <div id="containerBio">
               <i class="fas fa-map-pin ml-3"></i>
               <p class="font-weight-lighter ml-1"><%= @user.city %></p>
@@ -157,6 +160,7 @@
 
           </div>
         </div>
+
         <hr>
         <!-- <p class="font-weight-bold">About me</p> -->
         <p><%= @user.description %></p>
