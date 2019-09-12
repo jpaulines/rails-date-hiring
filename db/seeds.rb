@@ -102,21 +102,21 @@ EVENT_NAMES_PREFIX = [
 ]
 
 EVENT_CATEGORIES = [
-  "Wedding",
-  "Dinner Party",
-  "Family Event",
-  "Birthday Party",
-  "Theater Show",
-  "School Reunion",
-  "Charity Fundraiser",
-  "Barbeque",
-  "Club Event",
-  "Family Vacation",
-  "Event Premiere",
-  "House Party",
-  "Chef's Tasting",
-  "Sports Game",
-  "Bar Mitsvah"
+  ["Wedding", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262535/Event%20Category%20Default%20Images/wedding_z444nt.jpg"],
+  ["Dinner Party", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262537/Event%20Category%20Default%20Images/dinner_party_aue1vv.jpg"],
+  ["Family Event", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262534/Event%20Category%20Default%20Images/family_event_afpwxi.jpg"],
+  ["Birthday Party", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262532/Event%20Category%20Default%20Images/birthday_party_k5tv2v.jpg"],
+  ["Concert", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262536/Event%20Category%20Default%20Images/concert_ejse9z.jpg"],
+  ["School Reunion", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262868/Event%20Category%20Default%20Images/school_reunion_fquowu.jpg"],
+  ["Charity Event", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262533/Event%20Category%20Default%20Images/charity_event_yvhjlw.jpg"],
+  ["Barbeque", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262532/Event%20Category%20Default%20Images/Barbeque_idh00s.jpg"],
+  ["Club Event", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262533/Event%20Category%20Default%20Images/Club_Event_yi0fyt.jpg"],
+  ["Family Vacation", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262534/Event%20Category%20Default%20Images/family_vacation_bwrlhm.jpg"],
+  ["Event Premiere", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262533/Event%20Category%20Default%20Images/event_premiere_iwxmd6.jpg"],
+  ["House Party", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262536/Event%20Category%20Default%20Images/house_party_jplu8l.jpg"],
+  ["Chef's Tasting", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262533/Event%20Category%20Default%20Images/chef_tasting_r3pgzq.jpg"],
+  ["Sports Game", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262536/Event%20Category%20Default%20Images/sports_game_xiex97.jpg"],
+  ["Bar Mitsvah", "https://res.cloudinary.com/dakarw0uq/image/upload/v1568262532/Event%20Category%20Default%20Images/bar_mitsvah_xmpu6l.jpg"]
 ]
 
 WISHLIST = [
@@ -156,7 +156,7 @@ CITIES = [
 # Create static list of event categories
 
 EVENT_CATEGORIES.each do |event_category|
-  EventCategory.create(name: event_category)
+  EventCategory.create(name: event_category[0], default_image: event_category[1])
 end
 
 # Create male users
@@ -164,7 +164,7 @@ end
 15.times do
   User.create!(
     email: Faker::Internet.email,
-    username: Faker::Internet.username,
+    username: Faker::Internet.unique.username,
     password: '123456',
     first_name: Faker::Name.male_first_name,
     last_name: Faker::Name.last_name,
@@ -187,7 +187,7 @@ end
 15.times do
   User.create!(
     email: Faker::Internet.email,
-    username: Faker::Internet.domain_word,
+    username: Faker::Internet.unique.domain_word,
     password: '123456',
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,

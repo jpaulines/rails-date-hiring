@@ -1,48 +1,38 @@
 <div class="search-details">
 
   <%= form_tag events_path, method: :get, class: "form-inline" do %>
-
   <%= text_field_tag :city,
   params[:city],
   id: "location-input",
   placeholder: "Where?"
   %>
-
   <%= date_field_tag :date_range,
   params[:date_range],
   class: "datepicker",
     placeholder: "Date range?"
     %>
-
-    <%= submit_tag "Submit", class: "btn-index" %>
+  <%= submit_tag "Submit", class: "btn-index" %>
 
     <!--             <label class="control-label check_boxes optional">Event Categories</label> -->
-                <input type="hidden" name="post[category_ids][]" value="">
-                <div class="category-choices">
-                  <% EventCategory.all.each do |category| %>
-                  <input type="checkbox" class="d-none" autocomplete="off" <%= 'checked' if @event_categories.include?(category.id.to_s) %> value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
-                  <label class="category-choice <%= 'active' if @event_categories.include?(category.id.to_s) %>" for="post_category_ids_<%= category.id %>">
-                    <%= category.name %>
-              <!--       <i class="fa fa-check"></i> -->
-                  </label>
-                  <% end %>
-                </div>
-
-
-
-
-
-
+    <input type="hidden" name="post[category_ids][]" value="">
+    <div class="category-choices">
+      <% EventCategory.all.each do |category| %>
+      <input type="checkbox" class="d-none" autocomplete="off" <%= 'checked' if @event_categories.include?(category.id.to_s) %> value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
+      <label class="category-choice <%= 'active' if @event_categories.include?(category.id.to_s) %>" for="post_category_ids_<%= category.id %>">
+        <%= category.name %>
+        <!--       <i class="fa fa-check"></i> -->
+      </label>
+      <% end %>
+    </div>
     <% end %>
   </div>
 
   <div class="index-container">
-
     <div class="col-8">
-
       <% @events.each do |event| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag(event.event_category.default_image) %>
+        <!-- <img <%= event.event_image.nil? ? cl_image_tag(event.event_category.default_image) : cl_image_tag(event.event_image) %>/> -->
         <div class="card-product-details">
           <div class="card-product-infos">
             <h4><%= link_to event.name, event_path(event) %></h4>
@@ -50,16 +40,12 @@
             <p><%= event.event_category.name %></p>
           </div>
           <div class="card-product-price">
-            <h4>Avatar</h4>
+            <h5>Avatar</h5>
             <h4>$<%= event.cost %></h4>
           </div>
         </div>
       </div>
       <% end %>
-
-
-
-
     </div>
 
 
@@ -67,24 +53,10 @@
       <div
       id="map"
       style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
+      /*height: 600px;*/
+      "data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-
     </div>
-
-<script>
-window.onload = function(){
-    console.log("before")
-    document.querySelectorAll(".category-choice").forEach((e) => {
-    // if (e.checked == true) {
-      console.log(e.innerText);
-      // e.currentTarget.classList.add("active");
-      // console.log("inside loop");
-    // }
-  });
-  };
-</script>
 
 
