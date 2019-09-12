@@ -50,15 +50,26 @@
             </div>
           </div>
         </div>
-        <div class="container mt-3">
-          <h3>Trending events close to you..</h3>
-          <div class="row">
-            <div class="col-6 col-mb-4 col-lg-4 mb-4">
+
+
+      <div class="container mt-3">
+      <h3>Trending events close to you..</h3>
+      </div>
+        <%= render 'events-trending'%>
+
+
+      </div>
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag "resetcheckboxes" %>
+<% end %>
+
+
+  <!--         <div class="col-6 col-mb-4 col-lg-4 mb-4">
               <div class="flat-card">
                 <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1525373612132-b3e820b87cea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="flat-card-content">
+                <div class="flat-card-content"> -->
                   <!-- if statement & checkbox image -->
-                  <div class="flat-card-title">
+                  <!-- <div class="flat-card-title">
                     <h4>Event Name</h4>
                   </div>
                   <div class="flat-card-actions">
@@ -72,9 +83,9 @@
             <div class="col-6 col-mb-4 col-lg-4 mb-4">
               <div class="flat-card">
                 <div class="flat-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
-                <div class="flat-card-content">
+                <div class="flat-card-content"> -->
                   <!-- if statement & checkbox image -->
-                  <div class="flat-card-title">
+                 <!--  <div class="flat-card-title">
                     <h4>Event Name</h4>
                   </div>
                   <div class="flat-card-actions">
@@ -84,16 +95,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-<%= content_for(:after_js) do %>
-  <%= javascript_pack_tag "resetcheckboxes" %>
-<% end %>
-
-
-
+            </div> -->
 
 
 

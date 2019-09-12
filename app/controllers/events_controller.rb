@@ -17,6 +17,7 @@ class EventsController < ApplicationController
           infoWindow: render_to_string(partial: "info_window", locals: { event: event })
         }
     end
+
   end
 
   def show
