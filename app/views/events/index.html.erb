@@ -43,7 +43,7 @@
           <div class="card-product-price">
             <div class="avatar-container">
             <%= cl_image_tag(event.user.profile_image, crop: :fill, id: "index-avatar") %>
-            <p>Hosted by: <em><strong><%= event.user.username %></strong></em></p>
+            <p>Hosted by: <em><strong><%= event.user.first_name %></strong></em></p>
           </div>
           <div>
             <h4>$<%= event.cost %></h4>
