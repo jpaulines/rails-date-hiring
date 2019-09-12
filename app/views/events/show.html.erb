@@ -148,14 +148,14 @@
       <div class="show-detail-card">
 
         <div class="d-flex justify-content-start">
-          <%= link_to profile_path(@user) do %>
-          <%= cl_image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
+          <%= link_to profile_path(@event_user) do %>
+          <%= cl_image_tag @event_user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
           <% end %>
           <div>
-            <h5 class="ml-3 mt-2">Hosted by <strong><%= @user.first_name.capitalize %></strong></h5>
+            <h5 class="ml-3 mt-2">Hosted by <strong><%= @event_user.first_name.capitalize %></strong></h5>
             <div id="containerBio">
               <i class="fas fa-map-pin ml-3"></i>
-              <p class="font-weight-lighter ml-1"><%= @user.city %></p>
+              <p class="font-weight-lighter ml-1"><%= @event_user.city %></p>
             </div>
 
           </div>
@@ -163,7 +163,7 @@
 
         <hr>
         <!-- <p class="font-weight-bold">About me</p> -->
-        <p><%= @user.description %></p>
+        <p><%= @event_user.description %></p>
 
         <div class="d-flex justify-content-start">
           <div>
@@ -176,13 +176,13 @@
             <p class="font-weight-lighter">Funniness</p>
           </div>
           <div class="pl-5">
-            <p> <%= @user.strength %></p>
-            <p><%= @user.language %></p>
-            <p><%= @user.hidden_talent %></p>
-            <p><%= @user.age %></p>
-            <p> <%= @user.height %> m</p>
-            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @user.talkativeness %>" disabled></p>
-            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @user.funniness %>" disabled></p>
+            <p> <%= @event_user.strength %></p>
+            <p><%= @event_user.language %></p>
+            <p><%= @event_user.hidden_talent %></p>
+            <p><%= @event_user.age %></p>
+            <p> <%= @event_user.height %> m</p>
+            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @event_user.talkativeness %>" disabled></p>
+            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @event_user.funniness %>" disabled></p>
           </div>
 
         </div>
