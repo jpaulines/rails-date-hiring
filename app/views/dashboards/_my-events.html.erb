@@ -3,10 +3,13 @@
     <div class="col-6 col-mb-4 col-lg-4 mb-4">
       <%= link_to event_path(event) do  %>
         <div class="profile-card">
-          <% if event.event_image.present? %>
+
+
+
+          <% if event.event_image.file.present? %>
           <div class="profile-card-image" style="background-image: url(<%= event.event_image %>)"></div>
           <% else %>
-          <div class="profile-card-image" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')"></div>
+          <div class="profile-card-image" style="background-image: url(<%=event.event_category.default_image %>)"></div>
           <% end %>
           <div class="profile-card-content">
             <!-- if statement & checkbox image -->
