@@ -1,5 +1,5 @@
 <div class="profile-header">
-    <%= image_tag @user.profile_image, class: "avatar-profile mr-2" %>
+    <%= cl_image_tag @user.profile_image, class: "avatar-profile mr-2" %>
     <h1 class="h1-profile-wm"><%= @user.first_name %> <%= @user.last_name %></h1>
 </div>
 <div class="container">
