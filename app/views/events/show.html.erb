@@ -4,7 +4,7 @@
       rgba(0, 0, 0, 0.4)
     ), url("<%= @event.event_image.file.nil? ? @event.event_category.default_image : @event.event_image %>")'>
   <div class="container">
-    <h1 class="bannerevent-text text-light"><%= @event.event_category.name %></h1>
+    <h1 class="bannerevent-text text-light-custom"><%= @event.event_category.name %></h1>
   </div>
 </div>
 
@@ -63,31 +63,31 @@
               <% if @event.amenities == "Flight included"%>
               <!-- "Flight included", "Hotel included", "Meals included" -->
                 <div class="d-flex justify-content-center">
-                  <i class="fas fa-plane pr-3" style="color:#46C190; font-size:20px;"></i>
-                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-plane pr-4" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-4" style="color:#8A8A8A; font-size:20px;"></i>
                 </div>
               <% elsif  @event.amenities == "Hotel included" %>
                 <div class="d-flex justify-content-center">
-                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-hotel pr-3" style="color:#46C190; font-size:20px;"></i>
-                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-plane pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-4" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-4" style="color:#8A8A8A; font-size:20px;"></i>
                 </div>
               <% elsif  @event.amenities == "Meals included" %>
                 <div class="d-flex justify-content-center">
-                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-utensils pr-3" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-plane pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-4" style="color:#46C190; font-size:20px;"></i>
                 </div>
               <% else %>
                 <div class="d-flex justify-content-center">
-                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
-                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-plane pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-4" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-4" style="color:#8A8A8A; font-size:20px;"></i>
                 </div>
               <% end %>
             </div>
-
+            <hr>
             <p><span class="font-weight-lighter mr-4">What am I looking for? </span><%= @event.wishlist %></p>
           </div>
         </div>
