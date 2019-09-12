@@ -38,10 +38,10 @@
         %>
         <%= f.input :language, required: false %>
         <%= f.input :hidden_talent, required: false, placeholder: 'ex: Moonwalk' %>
-        <label for="Talk">Talkativess</label>
-        <input type="range" class="custom-range" id="customRange1" name=user[talkativeness] min="0" max="5">
+        <label for="Talk">Talkativeness</label>
+        <p class="pt-1"><input type="range" min="0" max="5" name="user[talkativeness]" ></p>
         <label for="Talk">Funniness</label>
-        <input type="range" class="custom-range" id="customRange1" name=user[Funniness] min="0" max="5">
+        <p class="pt-1"><input type="range" min="0" max="5" name="user[funniness]" ></p>
         <%= f.input :description, required: false, :label => "Tag line", placeholder: 'ex: I am a very good dancer'  %>
 
       </div>
