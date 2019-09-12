@@ -23,7 +23,8 @@ class EventsController < ApplicationController
   def show
     @def = "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg"
     @booking = Booking.new
-    @user = @event.user
+    @user = current_user
+    @event_user = @event.user
 
     # @event = Event.geocode # returns flats with coordinates
 
