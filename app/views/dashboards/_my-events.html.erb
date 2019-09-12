@@ -36,9 +36,10 @@
 <!-- <button id="approve-request-sweet" class="btn btn-primary">Click me!</button> -->
 
 
- <h1 class="h1-profile mb-4">See who wants to accompany you</h1>
-  <div class="row">
+
     <% @requests.each do |request| %>
+    <h1 class="h1-profile mb-4">See who wants to accompany you</h1>
+  <div class="row">
     <div class="col-12 col-mb-6 col-lg-6 mb-4">
       <div class="card-event-request">
         <div class="d-flex">
@@ -64,5 +65,5 @@
         </div>
       </div>
       </div>
+    </div>
       <% end %>
-  </div>
