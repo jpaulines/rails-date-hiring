@@ -3,12 +3,13 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @start_date = Date.parse(params["start_date"])
-    @end_date = Date.parse(params["end_date"])
+    @start_date = Date.parse(params["date_range"].first(10))
+    @end_date = Date.parse(params["date_range"].last(10))
+    @user = current_user
     @date_range = (@start_date..@end_date)
     @city = params["city"]
-    @event_category = params["event_category"].downcase
-    @events = policy_scope(Event).near(@city, 50).where(date: (@date_range)).where(event_category: @event_category)
+    @event_categories = params["post"]["category_ids"]
+    @events = policy_scope(Event).near(@city, 50).where(date: (@date_range)).where(event_category: (@event_categories))
     @markers = @events.map do |event|
         {
           lat: event.latitude,
@@ -34,6 +35,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @user = current_user
     authorize @event
   end
 
@@ -61,7 +63,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to dashboard_path, notice: 'Your event was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Your event was successfully deleted.'
   end
 
   private
