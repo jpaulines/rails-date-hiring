@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
     @start_date = Date.parse(params["date_range"].first(10))
     @end_date = Date.parse(params["date_range"].last(10))
+    @user = current_user
     @date_range = (@start_date..@end_date)
     @city = params["city"]
     @event_categories = params["post"]["category_ids"]
@@ -22,10 +23,19 @@ class EventsController < ApplicationController
     @def = "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg"
     @booking = Booking.new
     @user = @event.user
+
+    # @event = Event.geocode # returns flats with coordinates
+
+    @markers =
+      [{
+        lat: @event.latitude,
+        lng: @event.longitude
+      }]
   end
 
   def new
     @event = Event.new
+    @user = current_user
     authorize @event
   end
 
@@ -53,7 +63,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to dashboard_path, notice: 'Your event was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Your event was successfully deleted.'
   end
 
   private

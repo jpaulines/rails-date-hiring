@@ -1,6 +1,14 @@
 
-<div class="bannerevent" style='background-image: url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'> </div>
-<div class="container">
+<div class="bannerevent" style='background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url("<%= @event.event_image.url ? @event.event_image.url : @def %>")'>
+  <div class="container">
+    <h1 class="bannerevent-text text-light"><%= @event.event_category %></h1>
+  </div>
+</div>
+
+<div class="container margin-top-negative-show">
 
 
 
@@ -27,29 +35,81 @@
            t.boolean "approved"
            t.string "motivation"
         -->
-    <div class="col-12 col-lg-6">
-      <div id="containerIntro">
-        <h2 class="text-dark"><%= @event.name %></h2>
-        <p class="text-dark">at <%= @event.address %> on <%= @event.date %></p>
+    <div class="col-12 col-lg-7">
+
+      <div class="show-detail-card">
+        <div class="show-position-absolute">
+          <% if @event.cost == "0" || "" %>
+            <p>Free</p>
+          <% else %>
+            <p><span class="font-weight-lighter"></span><%= @event.cost %>$</p>
+          <% end %>
+        </div>
+        <div class="show-position-relative">
+          <div id="containerIntro">
+            <h3><%= @event.name %></h3>
+            <p>at <span class=font-weight-lighter><%= @event.address %></span> on <span class=font-weight-lighter><%= @event.date %></span></p>
+            <hr>
+          </div>
+          <div class="mt-3">
+            <p><%= @event.event_description %></p>
+            <hr>
+
+            <div class="d-flex justify-content-left">
+              <p>
+                <span class="font-weight-lighter mr-4">What's included? </span>
+              </p>
+
+              <% if @event.amenities == "Flight included"%>
+              <!-- "Flight included", "Hotel included", "Meals included" -->
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% elsif  @event.amenities == "Hotel included" %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#46C190; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% elsif  @event.amenities == "Meals included" %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#46C190; font-size:20px;"></i>
+                </div>
+              <% else %>
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-plane pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-hotel pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                  <i class="fas fa-utensils pr-3" style="color:#8A8A8A; font-size:20px;"></i>
+                </div>
+              <% end %>
+            </div>
+
+            <p><span class="font-weight-lighter mr-4">What am I looking for? </span><%= @event.wishlist %></p>
+          </div>
+        </div>
       </div>
-        <div class="mt-3">
-        <h3>About the event</h3>
-        <p><%= @event.event_description %></p>
-        <h4>What's included:</h4>
-        <p><%= @event.amenities %></p>
-        <h4>Looking for:</h4>
-        <p><%= @event.wishlist %></p>
-        <h4>Cost:</h4>
-        <p><%= @event.cost %> $</p>
-      </div>
-      <% if @event.bookings.where(user_id: current_user.id).empty? %>
-        <%= simple_form_for [@event, @booking] do |f| %>
-          <%= f.input :motivation %>
-          <%= f.submit "Book this event", class: "btn custom" %>
-        <% end %>
-      <% else %>
-        <p id="booked-box">This event is pending approval.</p>
+
+      <% if current_user.id != @event.user.id %>
+        <div class="show-detail-card">
+            <% if @event.bookings.where(user_id: current_user.id).empty? %>
+              <%= simple_form_for [@event, @booking] do |f| %>
+                <%= f.input :motivation %>
+                <%= f.submit "Book this event", class: "btn custom" %>
+              <% end %>
+            <% elsif @event.bookings.where(user_id: current_user.id).first.approved %>
+              <p id="booked-box">Your request has been approved 🥳, please refer to your dashboard for contact detais.</p>
+            <% elsif @event.bookings.where(user_id: current_user.id).first.approved.nil? %>
+              <p id="booked-box">Your request is pending approval 🧐...</p>
+            <% else %>
+              <p id="booked-box">Your request has been declined 🙃, maybe next time!</p>
+            <% end %>
+        </div>
       <% end %>
+
     </div>
 
 
@@ -71,41 +131,56 @@
          t.integer "age"
          t.string "gender"
        -->
-    <div class="col-12 col-lg-6 border">
-      <div class="d-flex justify-content-start">
-        <%= image_tag @user.profile_image, {class: "rounded-circle mt-3", width: 70, height: 70} %>
-        <div>
-          <h4 class="ml-3 mt-4 text-dark"><%= @user.username.capitalize %></h4>
-          <div id="containerBio">
-            <i class="fas fa-map-pin ml-3 text-dark"></i>
-            <p class="text-dark ml-1"><%= @user.city %></p>
-          </div>
+
+    <div class="col-12 col-lg-5">
+
+      <div class="show-detail-card">
+        <div id="map"
+          style="width: 100%; height: 250px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      <hr>
-      <p class="font-weight-bold">About me</p>
-      <p><%= @user.description %></p>
-      <p>Height:
-        <span class="font-weight-lighter"> <%= @user.height %>m</span>
-      </p>
-      <p>Attributes:
-        <span class="font-weight-lighter"> <%= @user.strength %> </span>
-      </p>
-      <p>Languages:
-        <span class="font-weight-lighter"><%= @user.language %> </span>
-      </p>
-      <p>Hidden Talent:
-        <span class="font-weight-lighter"><%= @user.hidden_talent %></span>
-      </p>
-      <p>Talkativeness:
-        <span class="font-weight-lighter"><%= @user.talkativeness %></span>
-      </p>
-      <p>Funniness:
-        <span class="font-weight-lighter"><%= @user.funniness%> </span>
-      </p>
-      <p>Age:
-        <span class="font-weight-lighter"><%= @user.age %></span>
-      </p>
+
+      <div class="show-detail-card">
+        <div class="d-flex justify-content-start">
+          <%= cl_image_tag @user.profile_image, {class: "rounded-circle", width: 70, height: 70} %>
+          <div>
+            <h5 class="ml-3 mt-2">Hosted by <strong><%= @user.username.capitalize %></strong></h5>
+            <div id="containerBio">
+              <i class="fas fa-map-pin ml-3"></i>
+              <p class="font-weight-lighter ml-1"><%= @user.city %></p>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <!-- <p class="font-weight-bold">About me</p> -->
+        <p><%= @user.description %></p>
+
+        <div class="d-flex justify-content-start">
+          <div>
+            <p class="font-weight-lighter">Strengths</p>
+            <p class="font-weight-lighter">Languages</p>
+            <p class="font-weight-lighter">Talent</p>
+            <p class="font-weight-lighter">Age</p>
+            <p class="font-weight-lighter">Height</p>
+            <p class="font-weight-lighter">Talkativeness</p>
+            <p class="font-weight-lighter">Funniness</p>
+          </div>
+          <div class="pl-5">
+            <p> <%= @user.strength %></p>
+            <p><%= @user.language %></p>
+            <p><%= @user.hidden_talent %></p>
+            <p><%= @user.age %></p>
+            <p> <%= @user.height %> m</p>
+            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @user.talkativeness %>" disabled></p>
+            <p class="pt-1"><input type="range" min="0" max="5" name="sld" value="<%= @user.funniness %>" disabled></p>
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
   </div>

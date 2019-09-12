@@ -1,0 +1,41 @@
+  <div class="row">
+    <% @my_bookings.each do |booking| %>
+    <div class="col-6 col-mb-4 col-lg-4 mb-4">
+      <%= link_to event_path(booking.event), id: 'card-clickable' do  %>
+      <div class="profile-card">
+        <% if booking.event.event_image.present? %>
+        <div class="profile-card-image" style="background-image: url(<%= booking.event.event_image %>)"></div>
+        <% else %>
+        <div class="profile-card-image" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tanbackground-1553877785.jpg?resize=480:*')"></div>
+        <% end %>
+        <div class="booking-card-content">
+          <!-- if statement & checkbox image -->
+          <div class="booking-card-title">
+            <p class="category-tag">
+              <%= booking.event.event_category %>
+              <%= link_to event_booking_path(booking.event, booking),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i id="booking-actions" class="fa fa-trash-o"></i>
+                <% end %>
+            </p>
+            <h4><%= booking.event.name %></h4>
+            <p class="crop-description"><%= booking.event.event_description %></p>
+          </div>
+          <div class="profile-card-actions-status">
+           <!--  <p>See more</p>
+            <i class="fa fa-trash-o"></i> -->
+            <% if booking.approved == true %>
+            <i class="fas fa-glass-cheers" id="booking-status-icon"></i>
+            <% elsif booking.approved == false %>
+            <i class="far fa-frown" id="booking-status-icon"></i>
+            <% elsif booking.approved == nil %>
+            <i class="far fa-clock" id="booking-status-icon"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>

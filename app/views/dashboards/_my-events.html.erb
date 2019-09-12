@@ -1,0 +1,68 @@
+  <div class="row">
+    <% @events.each do |event| %>
+    <div class="col-6 col-mb-4 col-lg-4 mb-4">
+      <%= link_to event_path(event) do  %>
+        <div class="profile-card">
+          <% if event.event_image.present? %>
+          <div class="profile-card-image" style="background-image: url(<%= event.event_image %>)"></div>
+          <% else %>
+          <div class="profile-card-image" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')"></div>
+          <% end %>
+          <div class="profile-card-content">
+            <!-- if statement & checkbox image -->
+            <div class="profile-card-title">
+              <p class="category-tag"><%= event.event_category %></p>
+              <h4><%= event.name %></h4>
+              <p class="crop-description"><%= event.event_description %></p>
+            </div>
+            <div class="profile-card-actions">
+                <%= link_to 'See more', event_path(event)%>
+                <%=link_to edit_event_path(event) do %>
+                    <i class="fa fa-pencil"></i>
+                <% end %>
+                <%= link_to event_path(event),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i class="fa fa-trash-o"></i>
+                <% end %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+  </div>
+
+<!-- <button id="approve-request-sweet" class="btn btn-primary">Click me!</button> -->
+
+
+ <h1 class="h1-profile mb-4">See who wants to accompany you</h1>
+  <div class="row">
+    <% @requests.each do |request| %>
+    <div class="col-12 col-mb-6 col-lg-6 mb-4">
+      <div class="card-event-request">
+        <div class="d-flex">
+            <%= image_tag request.user.profile_image, class: "avatar-large mr-2" %>
+            <div class="card-event-request-content">
+              <p><span class="p-question">Who? </span><%= request.user.first_name %> <%= request.user.last_name %></p>
+              <p><span class="p-question">Event? </span><%= request.event.name %></p>
+              <p><span class="p-question">Motivation? </span><%= request.motivation %></p>
+            </div>
+          </div>
+        <div class="card-event-request-actions">
+          <%= link_to profile_path(request.user)do %>
+          <i class="fas fa-user-alt"></i>
+          <% end %>
+
+
+          <%= button_to handle_booking_path(request, params: {approved: true}, :form => { :id => "approve-request-sweet"}) do %>
+            <i id="approve-request-sweet" class="fas fa-heart"></i>
+          <% end %>
+          <%= button_to handle_booking_path(request, params: {approved: false}, :form => { :id => "decline-request-sweet"}, class: 'btn btn-request') do%>
+          <i class="fas fa-times"></i>
+          <% end %>
+        </div>
+      </div>
+      </div>
+      <% end %>
+  </div>

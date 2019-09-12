@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   post 'bookings/:id/handle_booking', to: "bookings#handle_booking", as: :handle_booking
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :events do
-    resources :bookings, only: [ :create]
+    resources :bookings, only: [ :create, :destroy]
   end
 end

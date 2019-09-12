@@ -3,6 +3,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { toggleActive } from '../plugins/checkbox_animation';
 import "../plugins/flatpickr";
+import { initSweetalert } from '../plugins/init_sweetalert';
 // Algolia places
 
 if (document.querySelector('#location-input')) {
@@ -19,4 +20,17 @@ places({
 
 initMapbox();
 toggleActive();
+
+
+
+initSweetalert('#approve-request-sweet', {
+  title: "Congrats, you found great company!",
+  text: "Go to 'Events ahead' to find all details about your mate",
+  icon: "success"
+});
+
+initSweetalert('#decline-request-sweet', {
+  title: "You successfully decline this request!",
+  icon: "success"
+});
 
