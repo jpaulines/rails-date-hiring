@@ -6,23 +6,7 @@
           <%= f.input :name %>
           <%= f.input :address %>
           <%= f.input :date %>
-          <%= f.input :event_category, as: :select, collection: [
-            "wedding",
-            "dinner party",
-            "family event",
-            "birthday party",
-            "entertainment/show",
-            "school reunion",
-            "charity fundraiser",
-            "barbeque",
-            "night club party",
-            "family vacation",
-            "event premiere",
-            "house party",
-            "chef's tasting",
-            "sports game",
-            "bar mitsvah"
-            ]
+          <%= f.association :event_category, as: :select, collection: @event_categories
           %>
           <%= f.input :event_description %>
           <%= f.input :amenities, as: :select, collection: ["Flight included", "Hotel included", "Meals included"] %>
